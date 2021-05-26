@@ -4,7 +4,8 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        Wheather App
+        <h1> Wheather App</h1>
+        
         <footer>
           This project was coded by Maria João Hortega and is
           <a
