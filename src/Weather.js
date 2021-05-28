@@ -5,20 +5,21 @@ import "./Weather.css";
 export default function Weather(props) {
   const [weatherState, setweatherState] = useState({ flag: false });
   const [city, setCity] = useState(props.citySearh);
-  console.log({ city });
+  
   function getWeather(response) {
     setweatherState({
       flag: true,
-      temperature: response.data.main.temp,
-      date: new Date(response.data.main.dt * 1000),
+      temperature: Math.round(response.data.main.temp),
+      // date: new Date(response.data.main.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
-      feelslike: response.data.main.feels_like,
+      feelslike: Math.round(response.data.main.feels_like),
       city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       coords: response.data.coords,
     });
+    console.log({ weatherState });
   }
 
   function updateCity(event) {
@@ -46,12 +47,13 @@ export default function Weather(props) {
               />
             </div>
             <div className="col-2">
-              <button className="btn btn-primary" type="Submit">
+              <button className="btn  btn-secondary" type="Submit">
                 Search
               </button>
             </div>
           </div>
         </form>
+
         <div className="row">
           <div className="col wheatherInfoA">
             <div className="clearfix">
@@ -68,10 +70,7 @@ export default function Weather(props) {
               </div>
               <div className="wOtherInfo float-left ">
                 <ul>
-                  <li>
-                    Feels like: {weatherState.feels_like}{" "}
-                    <span className="wUnit ps-1">ºC</span>
-                  </li>
+                  <li>Feels like: {weatherState.feelslike} ºC</li>
                   <li>Humidity: {weatherState.humidity}%</li>
                   <li>Wind: {weatherState.wind} km/h</li>
                 </ul>
@@ -79,12 +78,14 @@ export default function Weather(props) {
             </div>
           </div>
           <div className="col wheatherInfoB">
-            <div className="clearfix wOtherInfo">
-              <ul>
-                <li className="city">{weatherState.city}</li>
-                <li className="dataDes">{weatherState.date}</li>
-                <li>{weatherState.description}</li>
-              </ul>
+            <div className="clearfix">
+              <div className="wOtherInfo">
+                <ul>
+                  <li className="city">{weatherState.city}</li>
+                  <li className="dataDes">data</li>
+                  <li>{weatherState.description}</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -92,5 +93,6 @@ export default function Weather(props) {
     );
   } else {
     searchCity();
+    return "Loading...";
   }
 }

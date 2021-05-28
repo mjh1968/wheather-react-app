@@ -1,3 +1,11 @@
+.formSearch {
+  font-family: arial, sans-serif;
+  /* border: 1px solid #dadde1; */
+  padding: 16px;
+  border-radius: 4px;
+  color: #878787;
+}
+
 .wheatherInfoA {
   display: inline-block;
   vertical-align: top;
@@ -35,8 +43,9 @@
 .wOtherInfo {
   color: #70757a;
   vertical-align: middle;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 16px;
+  margin-top: 13px;
 }
 
 ul {
@@ -48,8 +57,9 @@ ul {
 }
 
 .city {
-  color: black;
-  font-size: 20px;
+  color: gray;
+  font-size: 35px;
+  margin-bottom: 15px;
 }
 .dataDes {
   color: #70757a;
