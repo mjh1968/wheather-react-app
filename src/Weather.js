@@ -3,12 +3,12 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather(props) {
-  const [weatherState, setweatherState] = useState({ flag: false });
-  const [city, setCity] = useState(props.citySearh);
-  
-  function getWeather(response) {
-    setweatherState({
-      flag: true,
+  const [weatherData, setWeatherData] = useState({ flag: false });
+  const [city, setCity] = useState(props.defaultCity);
+
+  function handleResponse(response) {
+    setWeatherData({
+      ready: true,
       temperature: Math.round(response.data.main.temp),
       // date: new Date(response.data.main.dt * 1000),
       description: response.data.weather[0].description,
@@ -19,37 +19,41 @@ export default function Weather(props) {
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       coords: response.data.coords,
     });
-    console.log({ weatherState });
   }
 
-  function updateCity(event) {
+  function handleSubmit(event) {
+    event.preventdefault();
+    search();
+  }
+
+  function handleCityChange(event) {
     setCity(event.target.value);
   }
-  function searchCity() {
+
+  function search() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=094780c710fa4efd669f0df8c3991927&units=metric`;
-    axios.get(url).then(getWeather);
+    axios.get(url).then(handleResponse);
   }
-  function handleSearch(event) {
-    event.preventdefault();
-    searchCity();
-  }
-  if (weatherState.flag) {
+
+  if (weatherData.ready) {
     return (
       <div>
-        <form className="formSearch mb-4 caps" onSubmit={handleSearch}>
+        <form className="formSearch mb-4 " onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-10">
               <input
                 type="search"
                 placeholder="Enter a city.."
                 className="form-control"
-                onChange={updateCity}
+                onChange={handleCityChange}
               />
             </div>
             <div className="col-2">
-              <button className="btn  btn-secondary" type="Submit">
-                Search
-              </button>
+              <input
+                type="submit"
+                value="Search"
+                className="btn  btn-secondary"
+              />
             </div>
           </div>
         </form>
@@ -59,20 +63,20 @@ export default function Weather(props) {
             <div className="clearfix">
               <div className="float-left">
                 <img
-                  src={weatherState.icon}
-                  alt={weatherState.description}
+                  src={weatherData.icon}
+                  alt={weatherData.description}
                   className="wIcon me-2"
                 />
               </div>
               <div className="wTemperature float-left  ">
-                {weatherState.temperature}
+                {weatherData.temperature}
                 <span className="wUnit ps-1">ºC</span>
               </div>
               <div className="wOtherInfo float-left ">
                 <ul>
-                  <li>Feels like: {weatherState.feelslike} ºC</li>
-                  <li>Humidity: {weatherState.humidity}%</li>
-                  <li>Wind: {weatherState.wind} km/h</li>
+                  <li>Feels like: {weatherData.feelslike} ºC</li>
+                  <li>Humidity: {weatherData.humidity}%</li>
+                  <li>Wind: {weatherData.wind} km/h</li>
                 </ul>
               </div>
             </div>
@@ -81,9 +85,9 @@ export default function Weather(props) {
             <div className="clearfix">
               <div className="wOtherInfo">
                 <ul>
-                  <li className="city">{weatherState.city}</li>
-                  <li className="dataDes">data</li>
-                  <li>{weatherState.description}</li>
+                  <li className="city">{city}</li>
+                  <li className="dataDes">"Friday 14:03"</li>
+                  <li className="text-capitalize">{weatherData.description}</li>
                 </ul>
               </div>
             </div>
@@ -92,7 +96,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
-    searchCity();
+    search();
     return "Loading...";
   }
 }
