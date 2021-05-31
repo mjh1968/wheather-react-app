@@ -17,7 +17,7 @@ export default function Weather(props) {
       wind: response.data.wind.speed,
       feelslike: Math.round(response.data.main.feels_like),
       city: response.data.name,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      icon: response.data.weather[0].icon,
       coords: response.data.coords,
       nome: response.data.name,
     });

@@ -18,19 +18,21 @@
   text-align: right;
   margin-right: 13px;
 }
+.canvas,
 .wIcon {
   display: inline-block;
   vertical-align: top;
   height: 60px;
-
+  margin-top: unset;
   width: 60px;
 }
 .float-left {
   float: left;
 }
 .wTemperature {
-  line-height: 60px;
-  vertical-align: middle;
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 10px;
   font-size: 42px;
   color: black;
 }
@@ -42,10 +44,11 @@
 }
 .wOtherInfo {
   color: #70757a;
-  vertical-align: middle;
-  font-size: 14px;
+  display: inline-block;
+  font-size: 13px;
   line-height: 16px;
-  margin-top: 13px;
+  padding-left: 9px;
+  padding-top: 6px;
 }
 
 ul {
