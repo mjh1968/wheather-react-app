@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import FormatDate from "./FormatDate";
+import WeatherInfo from "./WeatherInfo";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -19,21 +19,20 @@ export default function Weather(props) {
       city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       coords: response.data.coords,
-      nome: city,
+      nome: response.data.name,
     });
   }
 
   function handleSubmit(event) {
-    event.preventdefault();
-    search();
+    event.preventDefault();
+    searchCity();
   }
 
   function handleCityChange(event) {
     setCity(event.target.value);
-    console.log(city);
   }
 
-  function search() {
+  function searchCity() {
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=094780c710fa4efd669f0df8c3991927&units=metric`;
     axios.get(url).then(handleResponse);
   }
@@ -47,7 +46,7 @@ export default function Weather(props) {
               <input
                 type="search"
                 placeholder="Enter a city.."
-                className="form-control"
+                className="form-control mb-4"
                 autoFocus="on"
                 onChange={handleCityChange}
               />
@@ -55,54 +54,17 @@ export default function Weather(props) {
             <div className="col-3">
               <input
                 type="submit"
-                value="Search"
+                value="search"
                 className="btn btn-primary w-100"
               />
             </div>
           </div>
         </form>
-
-        <div className="row">
-          <div className="col wheatherInfoA">
-            <div className="clearfix">
-              <div className="float-left">
-                <img
-                  src={weatherData.icon}
-                  alt={weatherData.description}
-                  className="wIcon me-2"
-                />
-              </div>
-              <div className="wTemperature float-left  ">
-                {weatherData.temperature}
-                <span className="wUnit ps-1">ºC</span>
-              </div>
-              <div className="wOtherInfo float-left ">
-                <ul>
-                  <li>Feels like: {weatherData.feelslike} ºC</li>
-                  <li>Humidity: {weatherData.humidity}%</li>
-                  <li>Wind: {weatherData.wind} km/h</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="col wheatherInfoB">
-            <div className="clearfix">
-              <div className="wOtherInfo">
-                <ul>
-                  <li className="city">{weatherData.nome}</li>
-                  <li className="dataDes">
-                    <FormatDate date={weatherData.date} />
-                  </li>
-                  <li className="text-capitalize">{weatherData.description}</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
+        <WeatherInfo info={weatherData} />
       </div>
     );
   } else {
-    search();
+    searchCity();
     return "Loading...";
   }
 }
