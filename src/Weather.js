@@ -18,6 +18,7 @@ export default function Weather(props) {
       city: response.data.name,
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
       coords: response.data.coords,
+      nome: city,
     });
   }
 
@@ -28,31 +29,35 @@ export default function Weather(props) {
 
   function handleCityChange(event) {
     setCity(event.target.value);
+    console.log(city);
   }
 
   function search() {
+       
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=094780c710fa4efd669f0df8c3991927&units=metric`;
     axios.get(url).then(handleResponse);
   }
 
   if (weatherData.ready) {
+   
     return (
       <div>
-        <form className="formSearch mb-4 " onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="row">
-            <div className="col-10">
+            <div className="col-9">
               <input
                 type="search"
                 placeholder="Enter a city.."
                 className="form-control"
+                autoFocus="on"
                 onChange={handleCityChange}
               />
             </div>
-            <div className="col-2">
+            <div className="col-3">
               <input
                 type="submit"
                 value="Search"
-                className="btn  btn-secondary"
+                className="btn btn-primary w-100"
               />
             </div>
           </div>
@@ -85,7 +90,7 @@ export default function Weather(props) {
             <div className="clearfix">
               <div className="wOtherInfo">
                 <ul>
-                  <li className="city">{city}</li>
+                  <li className="city">{weatherData.nome}</li>
                   <li className="dataDes">"Friday 14:03"</li>
                   <li className="text-capitalize">{weatherData.description}</li>
                 </ul>
@@ -96,6 +101,7 @@ export default function Weather(props) {
       </div>
     );
   } else {
+  
     search();
     return "Loading...";
   }
