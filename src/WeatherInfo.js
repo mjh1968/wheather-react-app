@@ -1,4 +1,5 @@
 import React from "react";
+import ConvertTemp from "./ConvertTemp";
 import FormatDate from "./FormatDate";
 import WeatherIcon from "./WeatherIcon";
 
@@ -10,10 +11,9 @@ export default function WeatherInfo(props) {
           <div className="float-left wIcon">
             <WeatherIcon auxIcon={props.info.icon} />
           </div>
-          <div className="wTemperature float-left  ">
-            {props.info.temperature}
-            <span className="wUnit ">ºC</span>
-          </div>
+
+          <ConvertTemp temp={props.info.temperature} type="celsius" />
+
           <div className="wOtherInfo float-left ">
             <ul>
               <li>Feels like: {props.info.feelslike} ºC</li>
