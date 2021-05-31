@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormatDate from "./FormatDate";
 import "./Weather.css";
 
 export default function Weather(props) {
@@ -10,7 +11,7 @@ export default function Weather(props) {
     setWeatherData({
       ready: true,
       temperature: Math.round(response.data.main.temp),
-      // date: new Date(response.data.main.dt * 1000),
+      date: (response.data.dt * 1000),
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
@@ -33,13 +34,11 @@ export default function Weather(props) {
   }
 
   function search() {
-       
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=094780c710fa4efd669f0df8c3991927&units=metric`;
     axios.get(url).then(handleResponse);
   }
 
   if (weatherData.ready) {
-   
     return (
       <div>
         <form onSubmit={handleSubmit}>
@@ -91,7 +90,9 @@ export default function Weather(props) {
               <div className="wOtherInfo">
                 <ul>
                   <li className="city">{weatherData.nome}</li>
-                  <li className="dataDes">"Friday 14:03"</li>
+                  <li className="dataDes">
+                    <FormatDate date={weatherData.date} />
+                  </li>
                   <li className="text-capitalize">{weatherData.description}</li>
                 </ul>
               </div>
@@ -101,7 +102,6 @@ export default function Weather(props) {
       </div>
     );
   } else {
-  
     search();
     return "Loading...";
   }
