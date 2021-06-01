@@ -19,7 +19,7 @@ export default function Weather(props) {
       feelslike: Math.round(response.data.main.feels_like),
       city: response.data.name,
       icon: response.data.weather[0].icon,
-      coords: response.data.coords,
+      coords: response.data.coord,
       nome: response.data.name,
     });
   }
@@ -62,7 +62,11 @@ export default function Weather(props) {
           </div>
         </form>
         <WeatherInfo info={weatherData} />
-        <Forecast city={city} icon={weatherData.icon} />
+        <Forecast
+          lat={weatherData.coords.lat}
+          long={weatherData.coords.lon}
+          icon={weatherData.icon}
+        />
       </div>
     );
   } else {

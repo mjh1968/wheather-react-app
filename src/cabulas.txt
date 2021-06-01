@@ -1,0 +1,84 @@
+const codeMappingColor = {
+    "01d": "#FFE67D",
+    "01n": "#FFE67D",
+    "02d": "#b4abab",
+    "02n": "#b4abab",
+    "03d": "#b4abab",
+    "03n": "#b4abab",
+    "04d": "#636161",
+    "04n": "#636161",
+    "09d": "#636161",
+    "09n": "#636161",
+    "10d": "#636161",
+    "10n": "#636161",
+    "11d": "#636161",
+    "11n": "#636161",
+    "13d": "SNOW",
+    "13n": "SNOW",
+    "50d": "#636161",
+    "50n": "#636161",
+  };
+
+
+
+
+
+       <tr>
+                <td>Tue</td>
+               
+              </tr>
+              <tr>
+                <td>
+                  <WeatherIcon auxIcon={props.icon} />
+                </td>
+                <td>
+                  <WeatherIcon auxIcon={props.icon} />
+                </td>
+                <td>
+                  <WeatherIcon auxIcon={props.icon} />
+                </td>
+                <td>
+                  <WeatherIcon auxIcon={props.icon} />
+                </td>
+                <td>
+                  <WeatherIcon auxIcon={props.icon} />
+                </td>
+                <td>
+                  <WeatherIcon auxIcon={props.icon} />
+                </td>
+              </tr>
+              <tr>
+                <td className="fTemp">
+                  29º
+                  <span className="minT"> 18º</span>
+                </td>
+                <td className="fTemp">
+                  29º
+                  <span className="minT"> 18º</span>
+                </td>
+                <td className="fTemp">
+                  29º
+                  <span className="minT"> 18º</span>
+                </td>
+                <td className="fTemp">
+                  29º
+                  <span className="minT"> 18º</span>
+                </td>
+                <td className="fTemp">
+                  29º
+                  <span className="minT"> 18º</span>
+                </td>
+                <td className="fTemp">
+                  29º
+                  <span className="minT"> 18º</span>
+                </td>
+              </tr>
+
+
+
+
+
+
+
+
+

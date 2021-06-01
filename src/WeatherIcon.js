@@ -22,26 +22,7 @@ export default function WeatherIcon(props) {
     "50d": "FOG",
     "50n": "FOG",
   };
-  const codeMappingColor = {
-    "01d": "#FFE67D",
-    "01n": "#FFE67D",
-    "02d": "#b4abab",
-    "02n": "#b4abab",
-    "03d": "#b4abab",
-    "03n": "#b4abab",
-    "04d": "#636161",
-    "04n": "#636161",
-    "09d": "#636161",
-    "09n": "#636161",
-    "10d": "#636161",
-    "10n": "#636161",
-    "11d": "#636161",
-    "11n": "#636161",
-    "13d": "SNOW",
-    "13n": "SNOW",
-    "50d": "#636161",
-    "50n": "#636161",
-  };
+
   return (
     //<img src={props.auxIcon} className="wIcon me-2" />
     <ReactAnimatedWeather
