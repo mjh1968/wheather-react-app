@@ -28,7 +28,7 @@ export default function WeatherIcon(props) {
     //<img src={props.auxIcon} className="wIcon me-2" />
     <ReactAnimatedWeather
       icon={codeMapping[props.auxIcon]}
-      color="goldenrod"
+      
       color="black"
       size={48}
       animate={true}
