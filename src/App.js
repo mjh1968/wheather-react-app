@@ -9,7 +9,7 @@ export default function App() {
         <div className="WheatherApp">
           <Weather defaultCity="Lisbon" />
           <footer>
-            <div className="beforeFooter"></div>
+           
             This project was coded by Maria João Hortega and is
             <a
               href="https://github.com/mjh1968/wheather-react-app"

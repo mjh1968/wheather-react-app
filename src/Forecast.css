@@ -1,0 +1,16 @@
+.Forecast {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  padding-top: 27px;
+}
+.fIcon {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 4px;
+  padding-right: 12px;
+}
+.fTemp {
+  font-size: 11px;
+}
