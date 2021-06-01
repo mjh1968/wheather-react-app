@@ -36,12 +36,30 @@ export default function Forecast(props) {
               </td>
             </tr>
             <tr>
-              <td className="fTemp">29ºC 27ºC</td>
-              <td className="fTemp">29ºC 27ºC</td>
-              <td className="fTemp">29ºC 27ºC</td>
-              <td className="fTemp">29ºC 27ºC</td>
-              <td className="fTemp">29ºC 27ºC</td>
-              <td className="fTemp">29ºC 27ºC</td>
+              <td className="fTemp">
+                29º
+                <span className="minT"> 18º</span>
+              </td>
+              <td className="fTemp">
+                29º
+                <span className="minT"> 18º</span>
+              </td>
+              <td className="fTemp">
+                29º
+                <span className="minT"> 18º</span>
+              </td>
+              <td className="fTemp">
+                29º
+                <span className="minT"> 18º</span>
+              </td>
+              <td className="fTemp">
+                29º
+                <span className="minT"> 18º</span>
+              </td>
+              <td className="fTemp">
+                29º
+                <span className="minT"> 18º</span>
+              </td>
             </tr>
           </tbody>
         </table>
