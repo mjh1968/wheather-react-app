@@ -8,7 +8,6 @@ export default function App() {
       <div className="container">
         <div className="WheatherApp">
           <Weather defaultCity="Lisbon" />
-
           <footer>
             <div className="beforeFooter"></div>
             This project was coded by Maria João Hortega and is

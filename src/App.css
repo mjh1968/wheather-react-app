@@ -4,8 +4,7 @@
 }
 .App footer {
   font-size: 11px;
-  margin: 10px 0;
-  margin-top: 145px;
+  margin-top: 25px;
 }
 .beforeFooter {
   background: #dadce0;
@@ -20,4 +19,3 @@
   border-radius: 4px;
   color: #878787;
 }
-
