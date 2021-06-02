@@ -35,6 +35,8 @@ export default function Forecast(props) {
                         <ForecastTempMm data={dailyForecast} />{" "}
                       </td>
                     );
+                  } else {
+                    return null;
                   }
                 })}
               </tr>
