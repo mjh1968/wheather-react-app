@@ -39,7 +39,7 @@
   line-height: 24px;
   vertical-align: super;
   font-size: 16px;
-  color:black;
+  color: black;
 }
 .wOtherInfo {
   color: #70757a;
@@ -66,4 +66,15 @@ ul {
 .dataDes {
   color: #70757a;
   margin-top: 4px;
+}
+@media (max-width: 400px) {
+  .col-3 {
+    margin-left: -5px;
+  }
+  col-3 input.btn.btn-primary.w-100 {
+    color: #0d6efd;
+    background-color: white;
+    border-color: white;
+    width: 116%
+  }
 }

@@ -27,3 +27,8 @@ td {
 .tdDay {
   padding-left: 5px;
 }
+@media (max-width: 400px) {
+  .Forecast canvas {
+    margin-left: -4px;
+  }
+}

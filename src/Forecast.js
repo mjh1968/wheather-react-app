@@ -27,7 +27,7 @@ export default function Forecast(props) {
             <tbody>
               <tr>
                 {wforecast.map(function (dailyForecast, index) {
-                  if (index < 8) {
+                  if (index < 7) {
                     return (
                       <td key={index}>
                         <ForecastDay data={dailyForecast} />
