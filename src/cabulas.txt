@@ -80,5 +80,18 @@ const codeMappingColor = {
 
 
 
+<tbody>
+<tr>
+<td>Wed</td>
+<td><canvas width="48" height="48">
+</canvas></td>
+<td class="fTemp">
+<div>20° 14°</div>
+</td>
+</tr><tr><td>Thu</td><td><canvas width="48" height="48"></canvas></td><td class="fTemp"><div>20° 13°</div></td></tr><tr><td>Fri</td><td><canvas width="48" height="48"></canvas></td><td class="fTemp"><div>23° 14°</div></td></tr><tr><td>Sat</td><td><canvas width="48" height="48"></canvas></td><td class="fTemp"><div>24° 14°</div></td></tr><tr><td>Sun</td><td><canvas width="48" height="48"></canvas></td><td class="fTemp"><div>26° 15°</div></td></tr><tr><td>Mon</td><td><canvas width="48" height="48"></canvas></td><td class="fTemp"><div>29° 17°</div></td></tr></tbody>
 
 
+ {/* <td>
+                        <WeatherIcon data={dailyForecast} />
+                      </td> */}
+                      

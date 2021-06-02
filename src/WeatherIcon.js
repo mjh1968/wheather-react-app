@@ -24,11 +24,10 @@ export default function WeatherIcon(props) {
   };
 
   return (
-    //<img src={props.auxIcon} className="wIcon me-2" />
     <ReactAnimatedWeather
       icon={codeMapping[props.auxIcon]}
       color="#636161"
-      size={48}
+      size={props.size}
       animate={true}
     />
   );

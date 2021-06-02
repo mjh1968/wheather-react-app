@@ -9,7 +9,8 @@ export default function WeatherInfo(props) {
       <div className="col wheatherInfoA">
         <div className="clearfix">
           <div className="float-left wIcon">
-            <WeatherIcon auxIcon={props.info.icon} />
+            <WeatherIcon auxIcon={props.info.icon} size={48} />
+
           </div>
 
           <ConvertTemp temp={props.info.temperature} type="celsius" />
