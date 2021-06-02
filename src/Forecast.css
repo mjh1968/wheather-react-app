@@ -17,3 +17,13 @@
 .minT {
   opacity: 0.7;
 }
+.Forecast canvas {
+  margin-left: -34px;
+}
+
+td {
+  text-align: center;
+}
+.tdDay {
+  padding-left: 5px;
+}

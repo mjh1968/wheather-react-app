@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon";
 import ForecastDay from "./ForecastDay";
 import ForecastTempMm from "./ForecastTempMm";
@@ -10,30 +10,29 @@ export default function Forecast(props) {
   const [wforecast, setwForecast] = useState(null);
   let [flag, setFlag] = useState(false);
 
+  useEffect(() => {
+    setFlag(false);
+  }, [props.coordinates]);
+
   function handleResponse(response) {
     setwForecast(response.data.daily);
     setFlag(true);
-    console.log(response.data.daily);
   }
 
   if (flag) {
     return (
       <div className="Forecast">
-        <div className="table-responsive -sm ">
+        <div className="table-responsive -sm align-middle">
           <table className="table">
             <tbody>
               <tr>
                 {wforecast.map(function (dailyForecast, index) {
-                  if (index < 7) {
+                  if (index < 8) {
                     return (
                       <td key={index}>
                         <ForecastDay data={dailyForecast} />
-                        <ForecastIcon auxIcon={dailyForecast.weather.icon} />
+                        <WeatherIcon type={1} data={dailyForecast} />
                         <ForecastTempMm data={dailyForecast} />{" "}
-                        <WeatherIcon
-                          code={props.data.weather[0].icon}
-                          size={38}
-                        />
                       </td>
                     );
                   }

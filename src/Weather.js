@@ -23,7 +23,7 @@ export default function Weather(props) {
       nome: response.data.name,
     });
   }
-
+  console.log(weatherData);
   function handleSubmit(event) {
     event.preventDefault();
     searchCity();
@@ -66,6 +66,7 @@ export default function Weather(props) {
           lat={weatherData.coords.lat}
           long={weatherData.coords.lon}
           icon={weatherData.icon}
+          coordinates={weatherData.coords}
         />
       </div>
     );

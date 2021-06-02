@@ -4,7 +4,7 @@ export default function ForecastTempMm(props) {
   let tmin = Math.round(props.data.temp.min);
   let tmax = Math.round(props.data.temp.max);
   return (
-    <td>
+    <td >
       {tmax}° {tmin}°
     </td>
   );

@@ -95,3 +95,9 @@ const codeMappingColor = {
                         <WeatherIcon data={dailyForecast} />
                       </td> */}
                       
+<WeatherIcon
+                          code={props.data.weather[0].icon}
+                          size={38}
+                        />
+
+                        ={props.data.weather[0].icon}
