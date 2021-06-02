@@ -23,7 +23,7 @@ export default function Weather(props) {
       nome: response.data.name,
     });
   }
-  console.log(weatherData);
+
   function handleSubmit(event) {
     event.preventDefault();
     searchCity();
